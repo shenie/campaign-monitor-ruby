@@ -120,7 +120,7 @@ class CampaignMonitor
     unless response["Code"].to_i != 0
       response["Client"].collect{|c| Client.new(c["ClientID"].to_i, c["Name"])}
     else
-      raise response["Code"] + " - " + response["Message"]
+      raise response["Code"] + ": " + response["Message"]
     end
   end
 
@@ -158,7 +158,7 @@ class CampaignMonitor
     unless response["Code"].to_i != 0
       response["List"].collect{|l| List.new(l["ListID"].to_i, l["Name"])}
     else
-      raise response["Code"] + " - " + response["Message"]
+      raise response["Code"] + ": " + response["Message"]
     end
   end
 
