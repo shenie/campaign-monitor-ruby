@@ -231,13 +231,11 @@ PARSER =
     raise LoadError unless XML::Parser::VERSION > '0.3.8.2'
     $:.push(File.join(File.dirname(__FILE__), '..', 'support', 'faster-xml-simple', 'lib'))
     require 'faster_xml_simple' 
-    p 'Using libxml-ruby'
     FasterXmlSimple
   rescue LoadError
     begin
       require 'rexml-expansion-fix'
     rescue LoadError => e
-      p 'Cannot load rexml security patch'
     end
     XmlSimple
   end
